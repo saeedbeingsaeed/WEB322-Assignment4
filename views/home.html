@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css"/>
+    <title>Lego Collection</title>
+</head>
+<body>
+    <div class="navbar bg-purple-900">
+        <div class="flex-1">
+            <a href="/" class="text-white hover:text-gray-400">Lego Collection</a>
+        </div>
+        <div class="navbar-center hidden sm:flex">
+            <ul class="menu menu-horizontal px-1">
+                <li><a href="/about" class="text-white hover:text-gray-400">About</a></li>
+                <li class="w-32">
+                    <details class="open:ring-1 ring-gray-300 ring-opacity-50 rounded">
+                        <summary class="cursor-pointer text-white hover:text-gray-400">
+                            Theme
+                        </summary>
+                        <ul class="dropdown-content menu p-2 bg-purple-700 right-0">
+                            <li>
+                                <a href="/lego/sets?theme=Technic">Technic</a>
+                            </li>
+                            <li>
+                                <a href="/lego/sets?theme=Jumbo Bricks">Jumbo Bricks</a>
+                            </li>
+                            <li>
+                                <a href="/lego/sets?theme=Basic Set">Basic Set</a>
+                            </li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container mt-4 mr-8 mb-8 mx-auto">
+        <div class="hero bg-base-200 p-4 rounded">
+            <div class="hero-content text-center">
+                <div class="max-w-md">
+                    <h1 class="mb-5 text-5xl font-bold">Welcome to the Lego Collection</h1>
+                    <p class="mb-5">
+                        Dive into the world of creativity and imagination with our diverse Lego sets. Start your next adventure here!
+                    </p>
+                    <a href="/lego/sets" class="btn btn-primary">Explore Sets</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4 pt-4">
+            <!-- Card 1 -->
+            <div class="card shadow-lg bg-base-100">
+                <img src="https://cdn.rebrickable.com/media/sets/080-1.jpg" alt="Set Image">
+                <div class="card-body">
+                    <h2 class="font-bold">Basic Building Set with Train</h2>
+                    <p class="text-sm">Year: 1967</p>
+                    <p class="text-sm">This classic set from 1967 features a versatile assortment of bricks alongside a charming train build.</p>
+                    <a href="/lego/sets/080-1" class="btn btn-primary mt-2">View Set</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card shadow-lg bg-base-100">
+                <img src="https://cdn.rebrickable.com/media/sets/060-1.jpg" alt="Set Image">
+                <div class="card-body">
+                    <h2 class="font-bold">Assorted White Plates</h2>
+                    <p class="text-sm">Year: 1966</p>
+                    <p class="text-sm">This set from 1966 offers a collection of versatile white plates for your building needs.</p>
+                    <a href="/lego/sets/060-1" class="btn btn-primary mt-2">View Set</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card shadow-lg bg-base-100">
+                <img src="https://cdn.rebrickable.com/media/sets/080-2.jpg" alt="Set Image">
+                <div class="card-body">
+                    <h2 class="font-bold">Ambassador Set</h2>
+                    <p class="text-sm">Year: 1967</p>
+                    <p class="text-sm">Released in 1967, this Ambassador Set showcases a diverse array of LEGO pieces to inspire creativity.</p>
+                    <a href="/lego/sets/080-1" class="btn btn-primary mt-2">View Set</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
