@@ -1,5 +1,5 @@
 /********************************************************************************
-*  WEB322 – Assignment 03
+*  WEB322 – Assignment 04
 * 
 *  I declare that this assignment is my own work in accordance with Seneca's
 *  Academic Integrity Policy:
@@ -8,7 +8,7 @@
 * 
 *  Name: Saeed Bafana 
 *  Student ID: 146178223 
-*  Date: 20 February 2023
+*  Date: 01 March 2024
 *
 *  Published URL: 
 *  https://giant-onesies-frog.cyclic.app/
@@ -21,38 +21,39 @@ const app = express();
 const port = 8080;
 
 app.use(express.static('public'));
+app.set('view engine', 'ejs');
 
 legoData.initialize().then(() => {
     app.get('/', (req, res) => {
-        res.sendFile(__dirname + '/views/home.html');
+        res.render('home', { page: '/' });
     });
 
     app.get('/about', (req, res) => {
-        res.sendFile(__dirname + '/views/about.html');
+        res.render('about', { page: '/about' });
     });
 
     app.get('/lego/sets', (req, res) => {
         const theme = req.query.theme;
         if (theme) {
             legoData.getSetsByTheme(theme)
-                .then((sets) => res.json(sets))
-                .catch((error) => res.status(404).send('Error: ' + error));
+                .then((sets) => res.render('sets', { sets, page: '/lego/sets' }))
+                .catch((error) => res.status(404).render('404', { message: "No sets found for the matching theme." }));
         } else {
             legoData.getAllSets()
-                .then((sets) => res.render('sets', { sets, page: '/lego/sets' })) // Add 'page' parameter for active navbar item
-                .catch((error) => res.status(404).send('Error: ' + error));
+                .then((sets) => res.render('sets', { sets, page: '/lego/sets' }))
+                .catch((error) => res.status(404).render('404', { message: "Error: " + error }));
         }
     });
 
     app.get('/lego/sets/:setNum', (req, res) => {
         const setNum = req.params.setNum;
         legoData.getSetByNum(setNum)
-            .then((set) => res.json(set))
-            .catch((error) => res.status(404).send('Error: ' + error));
+            .then((set) => res.render('set', { set }))
+            .catch((error) => res.status(404).render('404', { message: "No sets found for the specific set number." }));
     });
 
     app.use((req, res) => {
-        res.status(404).sendFile(__dirname + '/views/404.html');
+        res.status(404).render('404', { message: "No view matched for the specific route." });
     });
 
     app.listen(port, () => {
