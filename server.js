@@ -9,6 +9,9 @@
 *  Name: Saeed Bafana 
 *  Student ID: 146178223 
 *  Date: 20 February 2023
+*
+*  Published URL: 
+*  https://giant-onesies-frog.cyclic.app/
 ********************************************************************************/
 
 const express = require('express');
@@ -36,7 +39,7 @@ legoData.initialize().then(() => {
                 .catch((error) => res.status(404).send('Error: ' + error));
         } else {
             legoData.getAllSets()
-                .then((sets) => res.json(sets))
+                .then((sets) => res.render('sets', { sets, page: '/lego/sets' })) // Add 'page' parameter for active navbar item
                 .catch((error) => res.status(404).send('Error: ' + error));
         }
     });
